@@ -9,10 +9,15 @@ const path = require("path");
 const Pusher = require("pusher");
 const {Posts} = require('./models/postModel')
 
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
 Grid.mongo = mongoose.mongo;
 const app = express();
 
-const connection_url = "mongodb+srv://Social:App1@cluster0.eyc8n.mongodb.net/?retryWrites=true&w=majority";
+const connection_url = "mongodb+srv://fiit-tech:csW1eqRl0gLxlUQ3@cluster0.qy1gq.mongodb.net/?retryWrites=true&w=majority";
 
 const connection = mongoose.createConnection(connection_url, {
   useNewUrlParser: true,
@@ -31,7 +36,7 @@ const pusher = new Pusher({
 const port = process.env.PORT || 9000;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 
 let gfs, GridFSBucket;
