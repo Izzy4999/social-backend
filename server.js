@@ -9,6 +9,11 @@ const path = require("path");
 const Pusher = require("pusher");
 const {Posts} = require('./models/postModel')
 
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
 Grid.mongo = mongoose.mongo;
 const app = express();
 
@@ -31,7 +36,7 @@ const pusher = new Pusher({
 const port = process.env.PORT || 9000;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 
 let gfs, GridFSBucket;
