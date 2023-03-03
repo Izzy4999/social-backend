@@ -17,7 +17,7 @@ const corsOptions ={
 Grid.mongo = mongoose.mongo;
 const app = express();
 
-const connection_url = "mongodb+srv://Social:App1@cluster0.eyc8n.mongodb.net/?retryWrites=true&w=majority";
+const connection_url = "mongodb+srv://fiit-tech:csW1eqRl0gLxlUQ3@cluster0.qy1gq.mongodb.net/?retryWrites=true&w=majority";
 
 const connection = mongoose.createConnection(connection_url, {
   useNewUrlParser: true,
